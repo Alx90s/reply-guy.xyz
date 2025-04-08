@@ -1,0 +1,357 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>AutoPost - Charge Credits</title>
+    <link rel="stylesheet" href="css/styles.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+  </head>
+  <body>
+    <div class="app-container">
+      <!-- Header -->
+      <header class="main-header">
+        <div class="logo">
+          <h1>AutoPost</h1>
+        </div>
+        <nav class="main-nav">
+          <ul id="navMenu">
+            <li><a href="#" id="homeLink" class="active">Home</a></li>
+            <li><a href="#" id="pricingLink">Charge Credits</a></li>
+            <li><a href="#" id="dashboardLink" class="hidden">Dashboard</a></li>
+            <li><a href="#" id="loginLink">Login</a></li>
+            <li><a href="#" id="registerLink">Register</a></li>
+            <li><a href="#" id="logoutLink" class="hidden">Logout</a></li>
+          </ul>
+        </nav>
+      </header>
+
+      <!-- Main Content Area -->
+      <main class="main-content">
+        <!-- Loading State -->
+        <div id="loadingState" class="section loading-section hidden">
+          <div class="loading-spinner"></div>
+          <p class="loading-text">Loading...</p>
+        </div>
+
+        <!-- Home Section -->
+        <section id="homeSection" class="section active">
+          <div class="hero">
+            <h2>Automate Your Social Media Posts</h2>
+            <p>
+              Get more engagement with AI-powered posts scheduled automatically.
+            </p>
+            <button id="getStartedBtn" class="cta-button">Get Started</button>
+          </div>
+          <div class="features">
+            <div class="feature-card">
+              <i class="fas fa-robot"></i>
+              <h3>AI Generated</h3>
+              <p>
+                Our system creates engaging posts using advanced AI technology.
+              </p>
+            </div>
+            <div class="feature-card">
+              <i class="fas fa-calendar-alt"></i>
+              <h3>Auto Scheduled</h3>
+              <p>
+                Posts are scheduled at optimal times for maximum engagement.
+              </p>
+            </div>
+            <div class="feature-card">
+              <i class="fas fa-chart-line"></i>
+              <h3>Growth Focused</h3>
+              <p>Designed to increase your followers and engagement rates.</p>
+            </div>
+          </div>
+        </section>
+
+        <!-- Pricing Section -->
+        <section id="pricingSection" class="section hidden">
+          <h2>Choose Your Package</h2>
+          <p class="section-description">
+            Select the package that fits your needs and charge your account.
+          </p>
+
+          <div class="pricing-container">
+            <div
+              class="pricing-card"
+              data-package="1"
+              data-price="5"
+              data-credits="10000"
+            >
+              <div class="pricing-header">
+                <h3>Starter</h3>
+                <p class="price">$5</p>
+              </div>
+              <div class="pricing-features">
+                <p>10,000 Automatic Posts</p>
+                <p>Basic AI Templates</p>
+                <p>Standard Support</p>
+              </div>
+              <button class="select-package-btn">Select Package</button>
+            </div>
+
+            <div
+              class="pricing-card featured"
+              data-package="2"
+              data-price="20"
+              data-credits="30000"
+            >
+              <div class="pricing-header">
+                <span class="featured-tag">Popular</span>
+                <h3>Pro</h3>
+                <p class="price">$20</p>
+              </div>
+              <div class="pricing-features">
+                <p>30,000 Automatic Posts</p>
+                <p>Advanced AI Templates</p>
+                <p>Priority Support</p>
+              </div>
+              <button class="select-package-btn">Select Package</button>
+            </div>
+
+            <div
+              class="pricing-card"
+              data-package="3"
+              data-price="50"
+              data-credits="100000"
+            >
+              <div class="pricing-header">
+                <h3>Enterprise</h3>
+                <p class="price">$50</p>
+              </div>
+              <div class="pricing-features">
+                <p>100,000 Automatic Posts</p>
+                <p>Premium AI Templates</p>
+                <p>24/7 Priority Support</p>
+                <p>Custom Scheduling</p>
+              </div>
+              <button class="select-package-btn">Select Package</button>
+            </div>
+          </div>
+
+          <div id="paymentSection" class="payment-section hidden">
+            <h3>Complete Your Purchase</h3>
+            <div class="payment-details">
+              <p>Package: <span id="selectedPackage"></span></p>
+              <p>
+                Price: $<span id="packagePrice"></span> (≈
+                <span id="solAmount"></span> SOL)
+              </p>
+              <p>Credits: <span id="packageCredits"></span></p>
+            </div>
+
+            <div class="wallet-section">
+              <button id="connectWalletBtn" class="wallet-button">
+                <img
+                  src="images/phantom-icon.png"
+                  alt="Phantom"
+                  class="wallet-icon"
+                />
+                Connect Phantom Wallet
+              </button>
+              <div id="connectedWallet" class="connected-wallet hidden">
+                <p>Connected: <span id="walletAddress"></span></p>
+              </div>
+            </div>
+
+            <div class="payment-actions">
+              <button id="payNowBtn" class="cta-button hidden">Pay Now</button>
+              <button id="cancelPaymentBtn" class="cancel-button">
+                Cancel
+              </button>
+            </div>
+
+            <div id="paymentStatus" class="payment-status"></div>
+          </div>
+        </section>
+
+        <!-- Dashboard Section -->
+        <section id="dashboardSection" class="section hidden">
+          <h2>Your Dashboard</h2>
+          <div class="dashboard-summary">
+            <div class="summary-card">
+              <h3>Available Credits</h3>
+              <p class="highlight" id="userCredits">0</p>
+              <button
+                id="pricingLink"
+                class="secondary-button"
+                onclick="openPricingPage()"
+              >
+                Buy More
+              </button>
+
+              <!-- Add this script tag somewhere in your HTML file, preferably before the closing body tag -->
+              <script>
+                function openPricingPage() {
+                  // Try to find and click the Charge Credits link
+                  const chargeCreditsLink =
+                    document.querySelector("a#pricingLink");
+                  if (chargeCreditsLink) {
+                    chargeCreditsLink.click();
+                  } else {
+                    // Fallback: Open pricing page directly
+                    chrome.tabs.create({
+                      url: "http://localhost:8080/pricing",
+                    });
+                  }
+                }
+              </script>
+            </div>
+            <div class="summary-card">
+              <h3>Posts Created</h3>
+              <p class="highlight" id="postsCreated">0</p>
+            </div>
+            <div class="summary-card">
+              <h3>Account Status</h3>
+              <p class="highlight" id="accountStatus">Active</p>
+            </div>
+          </div>
+
+          <div class="dashboard-section">
+            <h3>Transaction History</h3>
+            <div class="transactions-table-container">
+              <table class="transactions-table">
+                <thead>
+                  <tr>
+                    <th>Date</th>
+                    <th>Package</th>
+                    <th>Amount</th>
+                    <th>Credits</th>
+                    <th>Transaction</th>
+                  </tr>
+                </thead>
+                <tbody id="transactionsTableBody">
+                  <!-- Transactions will be populated here -->
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </section>
+
+        <!-- Login Section -->
+        <section id="loginSection" class="section hidden">
+          <div class="auth-container">
+            <h2>Login to Your Account</h2>
+            <form id="loginForm" class="auth-form">
+              <div class="form-group">
+                <label for="loginEmail">Email</label>
+                <input
+                  type="email"
+                  id="loginEmail"
+                  placeholder="Enter your email"
+                  required
+                />
+              </div>
+              <div class="form-group">
+                <label for="loginPassword">Password</label>
+                <input
+                  type="password"
+                  id="loginPassword"
+                  placeholder="Enter your password"
+                  required
+                />
+              </div>
+              <button type="submit" class="cta-button">Login</button>
+              <p class="form-link">
+                Don't have an account?
+                <a href="#" id="registerFormLink">Register</a>
+              </p>
+              <div id="loginMessage" class="form-message"></div>
+            </form>
+          </div>
+        </section>
+
+        <!-- Register Section -->
+        <section id="registerSection" class="section hidden">
+          <div class="auth-container">
+            <h2>Create a New Account</h2>
+            <form id="registerForm" class="auth-form">
+              <div class="form-group">
+                <label for="registerUsername">Username</label>
+                <input
+                  type="text"
+                  id="registerUsername"
+                  placeholder="Choose a username"
+                  required
+                />
+              </div>
+              <div class="form-group">
+                <label for="registerEmail">Email</label>
+                <input
+                  type="email"
+                  id="registerEmail"
+                  placeholder="Enter your email"
+                  required
+                />
+              </div>
+              <div class="form-group">
+                <label for="registerPassword">Password</label>
+                <input
+                  type="password"
+                  id="registerPassword"
+                  placeholder="Create a password"
+                  required
+                />
+              </div>
+              <div class="form-group">
+                <label for="registerPasswordConfirm">Confirm Password</label>
+                <input
+                  type="password"
+                  id="registerPasswordConfirm"
+                  placeholder="Confirm your password"
+                  required
+                />
+              </div>
+              <button type="submit" class="cta-button">Register</button>
+              <p class="form-link">
+                Already have an account?
+                <a href="#" id="loginFormLink">Login</a>
+              </p>
+              <div id="registerMessage" class="form-message"></div>
+            </form>
+          </div>
+        </section>
+      </main>
+
+      <!-- Footer -->
+      <footer class="main-footer">
+        <div class="footer-content">
+          <p>&copy; 2023 AutoPost. All rights reserved.</p>
+          <div class="footer-links">
+            <a href="#">Terms of Service</a>
+            <a href="#">Privacy Policy</a>
+            <a href="#">Contact Us</a>
+          </div>
+        </div>
+      </footer>
+    </div>
+
+    <!-- Toast Notification -->
+    <div id="toast" class="toast hidden">
+      <div class="toast-content">
+        <span id="toastMessage">Notification message</span>
+      </div>
+    </div>
+
+    <script type="importmap">
+      {
+        "imports": {
+          "buffer": "https://jspm.dev/buffer"
+        }
+      }
+    </script>
+    <!-- Solana Web3.js -->
+    <script src="https://unpkg.com/@solana/web3.js@latest/lib/index.iife.js"></script>
+
+    <!-- App Scripts -->
+    <script src="js/config.js"></script>
+    <script src="js/auth.js"></script>
+    <script type="module" src="js/wallet.js"></script>
+    <script src="js/app.js"></script>
+  </body>
+</html>
