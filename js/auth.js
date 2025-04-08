@@ -410,7 +410,7 @@ async function loadDashboard() {
               <td>
                 <a href="https://explorer.solana.com/tx/${
                   transaction.signature
-                }?cluster=${CONFIG.SOLANA_NETWORK}" 
+                }?cluster=mainnet" 
                    target="_blank" rel="noopener noreferrer">
                    ${transaction.signature.substring(
                      0,

@@ -26,7 +26,7 @@ function initializeSolanaConnection() {
 
       // Initialize connection
       solanaConnection = new solanaWeb3.Connection(network);
-      console.log("Solana connection initialized:", CONFIG.SOLANA_NETWORK);
+      console.log("Solana connection initialized:", "mainnet");
     } catch (error) {
       console.error("Failed to initialize Solana connection:", error);
     }

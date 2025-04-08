@@ -3,11 +3,7 @@
  */
 const CONFIG = {
   // API URL - update this to match your backend deployment
-  API_URL: "http://localhost:3000/api",
-
-  // Solana network configuration
-  SOLANA_NETWORK: "devnet", // 'mainnet-beta' for production
-
+  API_URL: "https://api.reply-guy.xyz/api",
   // Recipient wallet for payments (the admin's wallet)
   PAYMENT_WALLET: "3yBZQz58CscgqkRxFCH7YA55tJKhSrtcDYAxegNwvA1x",
 
