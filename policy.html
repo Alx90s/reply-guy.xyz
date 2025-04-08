@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Privacy Policy - Twitter Reply Generator</title>
+    <style>
+      body {
+        font-family: sans-serif;
+        line-height: 1.6;
+        margin: 2em;
+        background-color: #f4f4f4;
+        color: #333;
+      }
+      .container {
+        max-width: 800px;
+        margin: auto;
+        background-color: #fff;
+        padding: 2em;
+        border-radius: 8px;
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+      }
+      h1,
+      h2 {
+        color: #1d9bf0; /* Twitter blue */
+        border-bottom: 1px solid #eee;
+        padding-bottom: 0.3em;
+        margin-bottom: 0.8em;
+      }
+      h1 {
+        text-align: center;
+      }
+      strong {
+        font-weight: bold;
+      }
+      ul {
+        margin-left: 2em;
+        margin-bottom: 1em;
+      }
+      p {
+        margin-bottom: 1em;
+      }
+      a {
+        color: #1d9bf0;
+      }
+      a:hover {
+        text-decoration: underline;
+      }
+      .last-updated {
+        text-align: center;
+        font-style: italic;
+        color: #666;
+        margin-bottom: 2em;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <h1>Privacy Policy for Twitter Reply Generator</h1>
+      <p class="last-updated">Last Updated: April 8, 2025</p>
+
+      <h2>1. Introduction</h2>
+      <p>
+        Welcome to the Twitter Reply Generator Chrome Extension ("Extension",
+        "we", "us", "our"). This Privacy Policy explains how we collect, use,
+        disclose, and safeguard your information when you use our Extension.
+        Please read this privacy policy carefully. If you do not agree with the
+        terms of this privacy policy, please do not install or use the
+        Extension.
+      </p>
+      <p>
+        The Extension allows users to generate AI-powered replies on Twitter/X,
+        customize an AI persona, and utilize an auto-reply feature.
+      </p>
+
+      <h2>2. Information We Collect</h2>
+      <p>
+        We may collect information about you in a variety of ways when you use
+        the Extension:
+      </p>
+      <ul>
+        <li>
+          <strong>Account Information:</strong> When you register for an account
+          via the Extension popup, we collect your email address, chosen
+          username, and password. This information is sent securely to our
+          backend server (api.reply-guy.xyz) to create and manage your account.
+        </li>
+        <li>
+          <strong>Authentication Data:</strong> We use HTTP cookies to manage
+          your login session between the Extension and our backend server
+          (api.reply-guy.xyz). The Extension requests permission to access
+          cookies specifically for this purpose. Your authentication token
+          itself is not stored locally in browser storage, but your logged-in
+          status and basic user info (username, credits) might be.
+        </li>
+        <li>
+          <strong>Usage Data & Content:</strong> To generate replies, the
+          Extension's content script identifies the text content of the tweet
+          you are replying to on the Twitter/X page. This tweet content is sent
+          to our backend server (api.reply-guy.xyz) for processing by the AI
+          model. The generated reply text is then sent back to the Extension to
+          be inserted into the reply field.
+        </li>
+        <li>
+          <strong>User Settings & Persona:</strong> Settings you configure
+          within the Extension's options page, such as maximum reply length, AI
+          temperature (creativity), your custom persona description, and
+          auto-reply preferences (delay times, reload limits), are stored
+          locally using Chrome's storage API (`chrome.storage.local`). These
+          settings may also be associated with your user ID.
+        </li>
+        <li>
+          <strong>Interaction Data:</strong> The Extension's content script
+          interacts with the Twitter/X webpage DOM (Document Object Model) to
+          identify elements like tweets, reply buttons, text areas, and post
+          buttons to enable its functionality. It does not collect personal data
+          from these interactions beyond the tweet content needed for reply
+          generation.
+        </li>
+      </ul>
+
+      <h2>3. How We Use Your Information</h2>
+      <p>We use the information we collect in the following ways:</p>
+      <ul>
+        <li>To create and manage your account and facilitate login.</li>
+        <li>
+          To provide the core functionality of the Extension, including
+          generating AI replies based on tweet content and your custom persona.
+        </li>
+        <li>
+          To operate the auto-reply feature according to your configured
+          settings.
+        </li>
+        <li>
+          To store your preferences and settings locally for a personalized
+          experience.
+        </li>
+        <li>
+          To communicate with our backend API (api.reply-guy.xyz) for
+          authentication and reply generation services.
+        </li>
+        <li>
+          To manage your credit balance for using the reply generation service.
+        </li>
+        <li>To improve the Extension's performance and features.</li>
+      </ul>
+
+      <h2>4. Data Sharing and Disclosure</h2>
+      <p>
+        We do not sell or rent your personal information. We may share
+        information under the following circumstances:
+      </p>
+      <ul>
+        <li>
+          <strong>With Service Providers:</strong> We share tweet content and
+          persona settings with our backend service (api.reply-guy.xyz) which
+          utilizes AI models to generate replies. These providers are obligated
+          to protect your data.
+        </li>
+        <li>
+          <strong>For Legal Reasons:</strong> We may disclose your information
+          if required by law, subpoena, or other legal process, or if we believe
+          in good faith that disclosure is necessary to protect our rights,
+          protect your safety or the safety of others, investigate fraud, or
+          respond to a government request.
+        </li>
+      </ul>
+
+      <h2>5. Data Storage and Security</h2>
+      <p>
+        Account credentials (email/password) are handled by our backend server
+        (api.reply-guy.xyz) during authentication. User settings and
+        authentication status are stored locally on your device using the
+        `chrome.storage.local` API. We implement security measures designed to
+        protect your information, however, no electronic transmission or storage
+        is 100% secure.
+      </p>
+
+      <h2>6. Permissions Explained</h2>
+      <p>The Extension requires the following permissions:</p>
+      <ul>
+        <li>
+          <strong>storage:</strong> To save your settings, persona, and login
+          status locally.
+        </li>
+        <li>
+          <strong>activeTab & scripting:</strong> To run the content script on
+          Twitter/X pages, read tweet content, insert replies, and click
+          necessary buttons.
+        </li>
+        <li>
+          <strong>clipboardRead/clipboardWrite:</strong> *[Optional: Clarify
+          if/how used. If not used, remove. If used, explain why, e.g., "To
+          optionally allow copying generated replies."]*
+        </li>
+        <li>
+          <strong>cookies:</strong> To manage authentication sessions with our
+          backend API (api.reply-guy.xyz).
+        </li>
+        <li>
+          <strong
+            >Host Permissions (`https://*.twitter.com/*`, `https://*.x.com/*`,
+            `https://api.reply-guy.xyz/*`, `https://reply-guy.xyz/*`):</strong
+          >
+          Necessary for the content script to function on Twitter/X, to
+          communicate with our backend API, and potentially link to our website.
+        </li>
+      </ul>
+
+      <h2>7. Your Rights and Choices</h2>
+      <p>
+        You can manage your settings, including your custom persona, via the
+        Extension's options page. You can review and change your account
+        information by logging into your account (if applicable on the main
+        website) or contacting us. You can uninstall the Extension at any time
+        via your browser's extension management page, which will remove locally
+        stored data associated with it.
+      </p>
+
+      <h2>8. Changes to This Privacy Policy</h2>
+      <p>
+        We may update this Privacy Policy from time to time. We will notify you
+        of any changes by posting the new Privacy Policy within the Extension or
+        on our website. You are advised to review this Privacy Policy
+        periodically for any changes.
+      </p>
+
+      <h2>9. Contact Us</h2>
+      <p>
+        If you have any questions about this Privacy Policy, please contact us
+        at: <br />
+        <em>[Your Contact Email Address]</em> <br />
+        <em
+          >[Link to your Website Contact Page, e.g.,
+          https://reply-guy.xyz/contact]</em
+        >
+      </p>
+    </div>
+  </body>
+</html>
